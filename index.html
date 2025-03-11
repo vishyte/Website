@@ -44,6 +44,267 @@
         <!--responsive.css-->
         <link rel="stylesheet" href="assets/css/responsive.css">
         
+        <style>
+            /* Game Developer Theme Styling */
+            body {
+                background: linear-gradient(135deg, #1a1a1a 0%, #0a0a2e 100%);
+                color: #ffffff;
+                position: relative;
+            }
+
+            /* Animated Gaming Background */
+            .gaming-background {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: -1;
+                overflow: hidden;
+            }
+
+            .pixel {
+                position: absolute;
+                width: 4px;
+                height: 4px;
+                background: #00ff9d;
+                animation: float 6s infinite;
+                opacity: 0.3;
+            }
+
+            .pixel:nth-child(2n) {
+                background: #00b8ff;
+                animation-delay: -2s;
+            }
+
+            .pixel:nth-child(3n) {
+                background: #ff00ff;
+                animation-delay: -4s;
+            }
+
+            .pixel:nth-child(4n) {
+                background: #ffff00;
+                animation-delay: -1s;
+            }
+
+            @keyframes float {
+                0% {
+                    transform: translateY(100vh) translateX(-50%);
+                    opacity: 0;
+                }
+                50% {
+                    opacity: 0.5;
+                }
+                100% {
+                    transform: translateY(-100px) translateX(50%);
+                    opacity: 0;
+                }
+            }
+
+            /* Grid overlay effect */
+            .grid-overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-image: 
+                    linear-gradient(rgba(0, 255, 157, 0.1) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(0, 255, 157, 0.1) 1px, transparent 1px);
+                background-size: 20px 20px;
+                pointer-events: none;
+                z-index: -1;
+                animation: gridScroll 20s linear infinite;
+            }
+
+            @keyframes gridScroll {
+                0% {
+                    transform: translateY(0);
+                }
+                100% {
+                    transform: translateY(20px);
+                }
+            }
+
+            /* Glowing text effect for headings */
+            .section-heading h2 {
+                color: #00ff9d;
+                text-shadow: 0 0 10px rgba(0, 255, 157, 0.5);
+                font-family: 'Press Start 2P', cursive;
+                margin-bottom: 40px;
+            }
+
+            /* Section styling */
+            section {
+                background: rgba(10, 10, 46, 0.7);
+                border: 1px solid rgba(0, 255, 157, 0.1);
+                border-radius: 10px;
+                margin: 20px 0;
+                padding: 40px 0;
+                box-shadow: 0 0 20px rgba(0, 255, 157, 0.1);
+            }
+
+            /* Welcome hero section specific styling */
+            #welcome-hero {
+                background: linear-gradient(rgba(10, 10, 46, 0.9), rgba(10, 10, 46, 0.9)),
+                            url('assets/images/background/gaming-pattern.png');
+                background-size: cover;
+                position: relative;
+                overflow: hidden;
+            }
+
+            #welcome-hero::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(45deg, rgba(0, 255, 157, 0.1) 25%, transparent 25%);
+                background-size: 3px 3px;
+                animation: backgroundScroll 20s linear infinite;
+                pointer-events: none;
+            }
+
+            @keyframes backgroundScroll {
+                0% { background-position: 0 0; }
+                100% { background-position: 100% 100%; }
+            }
+
+            /* Progress bar styling */
+            .progress-bar {
+                background: linear-gradient(90deg, #00ff9d, #00b8ff);
+                box-shadow: 0 0 10px rgba(0, 255, 157, 0.5);
+                color: #ffffff;
+                font-weight: bold;
+                text-align: center;
+                line-height: 30px;
+            }
+
+            .single-progress-txt h3 {
+                color: #ffffff;
+                font-weight: bold;
+            }
+
+            /* Project cards styling */
+            #projects .item {
+                background: rgba(10, 10, 46, 0.8);
+                border: 1px solid rgba(0, 255, 157, 0.2);
+                border-radius: 10px;
+                box-shadow: 0 0 15px rgba(0, 255, 157, 0.1);
+            }
+
+            #projects .isotope-overlay {
+                background: linear-gradient(to top, rgba(10, 10, 46, 0.9), rgba(10, 10, 46, 0.7));
+                border-top: 1px solid rgba(0, 255, 157, 0.2);
+            }
+
+            /* Navigation styling */
+            .navbar-default {
+                background: rgba(10, 10, 46, 0.9) !important;
+                border-bottom: 1px solid rgba(0, 255, 157, 0.2);
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            }
+
+            .navbar-default .navbar-nav > li > a {
+                color: #00ff9d !important;
+                text-shadow: 0 0 5px rgba(0, 255, 157, 0.3);
+            }
+
+            .navbar-default .navbar-nav > li > a:hover {
+                color: #ffffff !important;
+                text-shadow: 0 0 10px rgba(0, 255, 157, 0.5);
+            }
+
+            /* Download Resume Button Container Styling */
+            .header-text {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+            }
+
+            /* Download Resume Button Styling */
+            .header-text a {
+                display: inline-block;
+                width: 140px;
+                height: 45px;
+                margin: 20px 0;
+                padding: 0 20px;
+                font-size: 15px;
+                font-family: 'Poppins', sans-serif;
+                letter-spacing: 1px;
+                background: linear-gradient(90deg, #00ff9d, #00b8ff);
+                border: none;
+                border-radius: 50px;
+                color: #0a0a2e;
+                font-weight: 600;
+                text-transform: uppercase;
+                box-shadow: 0 0 20px rgba(0, 255, 157, 0.4);
+                transition: all 0.3s ease;
+                text-decoration: none;
+                text-align: center;
+                line-height: 45px;
+            }
+
+            .header-text a:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 5px 25px rgba(0, 255, 157, 0.6);
+                background: linear-gradient(90deg, #00b8ff, #00ff9d);
+            }
+
+            .header-text a:active {
+                transform: translateY(1px);
+            }
+
+            /* Project image styling */
+            #projects .item {
+                margin-bottom: 30px;
+                height: 300px;
+                overflow: hidden;
+                position: relative;
+            }
+            
+            #projects .item img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: transform 0.3s ease;
+            }
+            
+            #projects .item:hover img {
+                transform: scale(1.1);
+            }
+            
+            #projects .isotope-overlay {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                background: rgba(0, 0, 0, 0.7);
+                padding: 15px;
+                text-align: center;
+            }
+            
+            #projects .isotope-overlay a {
+                color: white;
+                font-size: 18px;
+                text-decoration: none;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+            }
+            
+            #projects .row {
+                display: flex;
+                flex-wrap: wrap;
+            }
+            
+            #projects .col-sm-4 {
+                margin-bottom: 30px;
+            }
+        </style>
+        
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 		
@@ -55,6 +316,33 @@
     </head>
 	
 	<body>
+		<!-- Gaming Background -->
+		<div class="gaming-background">
+			<!-- Adding 50 pixel elements for the animation -->
+			<div class="pixel" style="left: 5%;"></div>
+			<div class="pixel" style="left: 15%;"></div>
+			<div class="pixel" style="left: 25%;"></div>
+			<div class="pixel" style="left: 35%;"></div>
+			<div class="pixel" style="left: 45%;"></div>
+			<div class="pixel" style="left: 55%;"></div>
+			<div class="pixel" style="left: 65%;"></div>
+			<div class="pixel" style="left: 75%;"></div>
+			<div class="pixel" style="left: 85%;"></div>
+			<div class="pixel" style="left: 95%;"></div>
+			<!-- More pixels with different positions -->
+			<div class="pixel" style="left: 10%;"></div>
+			<div class="pixel" style="left: 20%;"></div>
+			<div class="pixel" style="left: 30%;"></div>
+			<div class="pixel" style="left: 40%;"></div>
+			<div class="pixel" style="left: 50%;"></div>
+			<div class="pixel" style="left: 60%;"></div>
+			<div class="pixel" style="left: 70%;"></div>
+			<div class="pixel" style="left: 80%;"></div>
+			<div class="pixel" style="left: 90%;"></div>
+			<div class="pixel" style="left: 100%;"></div>
+		</div>
+		<div class="grid-overlay"></div>
+		
 		<!--[if lte IE 9]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
         <![endif]-->
@@ -77,7 +365,6 @@
 								<li class="smooth-menu"><a href="#professional-experience">Professional Experience</a></li>
 								<li class="smooth-menu"><a href="#projects">Projects</a></li>
 								<li class="smooth-menu"><a href="#portfolio">Certificates</a></li>
-								<li class="smooth-menu"><a href="#contact">Contact</a></li>
 							</ul>
 							
 						</div>
@@ -96,7 +383,7 @@
 						<div class="header-text">
 							<h2>hi <span>,</span> i am <br> Vishy <br> Te<span>.</span>   </h2>
 							<p>Game Developer</p>
-							<a href="assets/download/vishy Resume.pdf">download resume</a>
+							<a href="assets/download/vishy Resume.pdf">RESUME</a>
 						</div><!--/.header-text-->
 
 
@@ -331,7 +618,7 @@
 		<!--skills end -->
 
 		<!--experience start -->
-		<section id="experience" class="experience">
+		<section id="internship" class="experience">
 			<div class="section-heading text-center">
 				<h2>internship</h2>
 			</div>
@@ -655,95 +942,7 @@
 			</div>
 		</section><!--/.portfolio-->
 		<!--portfolio end -->
-		<!--contact start -->
-		<section id="contact" class="contact">
-			<div class="section-heading text-center">
-				<h2>contact me</h2>
-			</div>
-			<div class="container">
-				<div class="contact-content">
-					<div class="row">
-						<div class="col-md-offset-1 col-md-5 col-sm-6">
-							<div class="single-contact-box">
-								<div class="contact-form">
-									<form>
-										<div class="row">
-											<div class="col-sm-6 col-xs-12">
-												<div class="form-group">
-												  <input type="text" class="form-control" id="name" placeholder="Name*" name="name">
-												</div><!--/.form-group-->
-											</div><!--/.col-->
-											<div class="col-sm-6 col-xs-12">
-												<div class="form-group">
-													<input type="email" class="form-control" id="email" placeholder="Email*" name="email">
-												</div><!--/.form-group-->
-											</div><!--/.col-->
-										</div><!--/.row-->
-										<div class="row">
-											<div class="col-sm-12">
-												<div class="form-group">
-													<input type="text" class="form-control" id="subject" placeholder="Subject" name="subject">
-												</div><!--/.form-group-->
-											</div><!--/.col-->
-										</div><!--/.row-->
-										<div class="row">
-											<div class="col-sm-12">
-												<div class="form-group">
-													<textarea class="form-control" rows="8" id="comment" placeholder="Message" ></textarea>
-												</div><!--/.form-group-->
-											</div><!--/.col-->
-										</div><!--/.row-->
-										<div class="row">
-											<div class="col-sm-12">
-												<div class="single-contact-btn">
-													<a class="contact-btn" href="#" role="button">submit</a>
-												</div><!--/.single-single-contact-btn-->
-											</div><!--/.col-->
-										</div><!--/.row-->
-									</form><!--/form-->
-								</div><!--/.contact-form-->
-							</div><!--/.single-contact-box-->
-						</div><!--/.col-->
-						<div class="col-md-offset-1 col-md-5 col-sm-6">
-							<div class="single-contact-box">
-								<div class="contact-adress">
-									<div class="contact-add-head">
-										<h3>Vishy Te</h3>
-										<p>Information Techonology</p>
-									</div>
-									<div class="contact-add-info">
-										<div class="single-contact-add-info">
-											<h3>phone</h3>
-											<p>+639612670431</p>
-										</div>
-										<div class="single-contact-add-info">
-											<h3>email</h3>
-											<p>vishyte02@gmail.com</p>
-										</div>
-										<div class="single-contact-add-info">
-											<h3>website</h3>
-											<p>https://vishyte.github.io/Website/</p>
-										</div>
-									</div>
-								</div><!--/.contact-adress-->
-								<div class="hm-foot-icon">
-									<ul>
-										<li><a href="https://www.facebook.com/vishyte" target="_blank"><i class="fa fa-facebook"></i></a></li><!--/li-->
-										<li><a href="https://www.linkedin.com/in/vishy-te-ba2a9622b/" target="_blank"><i class="fa fa-linkedin"></i></a></li><!--/li-->
-										<li><a href="https://www.instagram.com/your_instagram_handle" target="_blank"><i class="fa fa-instagram"></i></a></li><!--/li-->
-									</ul><!--/ul-->
-								</div>
-								
-							</div><!--/.single-contact-box-->
-						</div><!--/.col-->
-					</div><!--/.row-->
-				</div><!--/.contact-content-->
-			</div><!--/.container-->
 
-		</section><!--/.contact-->
-		<!--contact end -->
-
-		
 		<!-- Include all js compiled plugins (below), or include individual files as needed -->
 
 		<script src="assets/js/jquery.js"></script>
